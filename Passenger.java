@@ -1,6 +1,5 @@
 import java.util.*; 
-
-public class passenger{
+public class passenger {
     //fields
     private int finalDestination;
     private int start;
