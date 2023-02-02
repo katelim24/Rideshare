@@ -3,9 +3,11 @@ import java.util.*;
 public class Station {
     //fields
     private ArrayList<Passenger> passengers;
+    private int num;
 
     //constructors
-    public Station(){
+    public Station(int myNum){
+        num = myNum;
         passengers = new ArrayList<Passenger>();
     }
 
@@ -21,5 +23,9 @@ public class Station {
 
     public ArrayList<Passenger> getList(){
         return passengers;
+    }
+
+    public String toString(){
+        return "Passengers" + passengers + "Station num" + num;
     }
 }
