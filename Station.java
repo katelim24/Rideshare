@@ -22,4 +22,8 @@ public class Station {
     public ArrayList<Passenger> getList(){
         return passengers;
     }
+
+    public String toString(){
+        return "Passengers" + passengers;
+    }
 }
