@@ -1,12 +1,12 @@
 import java.util.*; 
-public class passenger {
+public class Passenger {
     //fields
     private int finalDestination;
     private int start;
     private int current;
 
     //constructors
-    public passenger(){
+    public Passenger(){
         finalDestination = (int)Math.random() * 31 + 1;
         start  = (int)Math.random() * 31 + 1;
         current = 0;

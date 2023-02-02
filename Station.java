@@ -2,16 +2,16 @@ import java.util.*;
 
 public class Station {
     //fields
-    private ArrayList<passenger> passengers;
+    private ArrayList<Passenger> passengers;
 
     //constructors
     public Station(){
-        passengers = new ArrayList<passenger>();
+        passengers = new ArrayList<Passenger>();
     }
 
 
     //methods
-    public void addPassenger(passenger a){
+    public void addPassenger(Passenger a){
         passengers.add(a);
     }
 
@@ -19,7 +19,7 @@ public class Station {
         passengers.remove(pos);
     }
 
-    public ArrayList<passenger> getList(){
+    public ArrayList<Passenger> getList(){
         return passengers;
     }
 }
