@@ -18,6 +18,10 @@ public class passenger {
         return finalDestination;
     }
 
+    public int getStart(){
+        return start;
+    }
+
     public String toString(){
         return "Starting station: " + start + ", final destination: " + finalDestination + ", current position: " + current;
     }
