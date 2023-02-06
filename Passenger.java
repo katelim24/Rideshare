@@ -24,6 +24,5 @@ public class Passenger {
 
     public String toString(){
         return "Starting station: " + start + ", final destination: " + finalDestination;
-        // make a current position value
     }
 }
