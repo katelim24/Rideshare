@@ -1,9 +1,9 @@
 public class Runner {
     public static void main(String[] args) {
         System.out.println("Testing Passenger...");
-        Passenger one = new Passenger();
-        Passenger two = new Passenger();
-        Passenger three = new Passenger();
+        Passenger one = new Passenger(0, 3);
+        Passenger two = new Passenger(7, 2);
+        Passenger three = new Passenger(1, 5);
 
         
 
