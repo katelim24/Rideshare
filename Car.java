@@ -26,9 +26,7 @@ public class Car {
 
     //methods
     public void drive(){
-        if(location != destination){
-            location += direction;
-        };
+        location += 1;
     }
 
     public void pickup(Station a, Passenger b){
