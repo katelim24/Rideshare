@@ -64,7 +64,6 @@ public class Station {
             if(p.getFinal() < num){
                 return true;
             }
-
         }
         return false;
     }
