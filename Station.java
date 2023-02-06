@@ -56,4 +56,9 @@ public class Station {
         }
         return null;
     }
+
+    public boolean hasLeftPassenger(){
+        //almost identical to nextLeftPassenger, but return true/false
+        return false;
+    }
 }
