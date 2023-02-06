@@ -15,10 +15,10 @@ public class Station {
     //methods
     /**
      * this adds a new passenger to the passenger list
-     * @param a the passanger to be added in
+     * @param p the passanger to be added in
      */
-    public void addPassenger(Passenger a){
-        passengers.add(a);
+    public void addPassenger(Passenger p){
+        passengers.add(p);
     }
 
     /**
@@ -30,8 +30,8 @@ public class Station {
     }
 
     /**
-     * 
-     * @return
+     * returns the list of passengers
+     * @return 
      */
     public ArrayList<Passenger> getList(){
         return passengers;
@@ -42,10 +42,18 @@ public class Station {
     }
 
     /**
-     * 
-     * @return
+     * hands off the next passenger that is trying to go left
+     * note that it removes the passenger from the station before returning it
+     * @return the next passenger going to the left
      */
     public Passenger nextLeftPassenger(){
-
+        for(int i = 0; i < passengers.size(); i++){
+            Passenger p = passengers.get(i);
+            if(p.getFinal() < num){
+                passengers.remove(i);
+                return p;
+            }
+        }
+        return null;
     }
 }
