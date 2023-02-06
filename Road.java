@@ -5,6 +5,7 @@ public class Road {
     private Station[] stops;
     private int length;
     private Car[] cars;
+    private Car c;
 
     //constructors
     public Road(){
@@ -18,6 +19,8 @@ public class Road {
         stops[0].addPassenger(new Passenger(0, 1));
         stops[3].addPassenger(new Passenger(3, 4));
         stops[3].addPassenger(new Passenger(3, 1));
+
+        c = new Car();
     }
 
     //methods
@@ -33,6 +36,6 @@ public class Road {
     
     
     public void update(){
-        
+        c.drive();
     }
 }
