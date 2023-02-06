@@ -59,6 +59,13 @@ public class Station {
 
     public boolean hasLeftPassenger(){
         //almost identical to nextLeftPassenger, but return true/false
+        for(int i = 0; i < passengers.size(); i++){
+            Passenger p = passengers.get(i);
+            if(p.getFinal() < num){
+                return true;
+            }
+
+        }
         return false;
     }
 }
