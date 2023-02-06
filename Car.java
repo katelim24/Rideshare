@@ -34,7 +34,7 @@ public class Car {
     public String toString(){
         String s = super.toString();
         s += " Loc: " + location;
-        s += " Dest: " + finalDestination;
+        s += " Dest: " + destination;
         s += " Passengers: " + passList;
         return s;
     }
