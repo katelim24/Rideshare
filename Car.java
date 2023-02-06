@@ -22,7 +22,9 @@ public class Car {
 
     //methods
     public void drive(){
-        location += 1;
+        if(location != destination){
+            location += direction;
+        }
     }
 
     public String toString(){
