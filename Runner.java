@@ -2,8 +2,8 @@ public class Runner {
     public static void main(String[] args) {
         System.out.println("Testing Passenger...");
         Passenger one = new Passenger(0, 3);
-        Passenger two = new Passenger(7, 2);
-        Passenger three = new Passenger(1, 5);
+        Passenger two = new Passenger(3, 2);
+        Passenger three = new Passenger(1, 4);
 
         
 
@@ -26,6 +26,9 @@ public class Runner {
         System.out.println(r.toString());
         c.drive();
         c.pickup(a, one);
+        System.out.println("driving cars...");
+        System.out.println("picking up passengers...");
+        System.out.println("Printing the current road...");
         //c.dropoff;
 
 

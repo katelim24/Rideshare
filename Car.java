@@ -12,7 +12,6 @@ public class Car {
 
     //constructors
     public Car(){
-        Car c = new Car();
         numPassengers = 0;
         moneyEarned = 0;
         start = (int)Math.random() * 31 + 1;
