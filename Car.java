@@ -2,22 +2,26 @@ import java.util.*;
 
 public class Car {
     //fields
-    private int numPassengers;
     private ArrayList<Passenger> passList;
     private int moneyEarned;
     private int location;
-    private int start;
-    private int finalDestination;
-    private boolean isGoingForward;
+    private int destination;
+    private int direction;
 
     //constructors
-    public Car(){
-        numPassengers = 0;
+    public Car(int start, int stop){
+        location = start;
+        destination = stop;
+        passList = new ArrayList<Passenger>();
+        if(location < destination){
+            direction = 1;
+        } else{
+            direction = -1;
+        }
         moneyEarned = 0;
         start = (int)Math.random() * 31 + 1;
         location = start;
-        finalDestination = (int)Math.random() * 31 + 1;
-        isGoingForward = true;
+        destination = (int)Math.random() * 31 + 1;
     }
 
     //methods
