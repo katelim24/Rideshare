@@ -25,6 +25,14 @@ public class Car {
         location += 1;
     }
 
+    public String toString(){
+        String s = super.toString();
+        s += " Loc: " + location;
+        s += " Dest: " + finalDestination;
+        s += " Passengers: " + passList;
+        return s;
+    }
+
     public void pickup(Station a, Passenger b){
         a.removePassenger(location);
         passList.add(b);
