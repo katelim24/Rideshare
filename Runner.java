@@ -25,10 +25,11 @@ public class Runner {
         System.out.println("Printing the current road...");
         System.out.println(r.toString());
         c.drive();
-        c.pickup(a, one);
+        //c.pickup(a, one);
         System.out.println("driving cars...");
         System.out.println("picking up passengers...");
         System.out.println("Printing the current road...");
+        System.out.println(r.toString());
         //c.dropoff;
 
 
