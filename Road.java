@@ -4,6 +4,7 @@ public class Road {
     //fields
     private Station[] stations;
     private Car[] cars;
+    private Passenger[] passengers;
     private Car c;
 
     //constructors
@@ -12,7 +13,8 @@ public class Road {
         for(int i = 0; i < stations.length; i++){
             stations [i] = new Station(i); //makes a new station with number
         }
-        c = new Car();
+        cars = new Car[10];
+        passengers = new Passenger[30];
     }
 
     //methods
@@ -32,7 +34,7 @@ public class Road {
         }
     }
 
-    public void update(){ //COMPLICATED ONE
+    public void update(){
         for (int i = 0; i < cars.length; i++){
             if(cars[i].getDestination() - cars[i].getLocation() > 0){
                 if(stations[i].hasRightPassanger() == true){
