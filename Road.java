@@ -17,7 +17,7 @@ public class Road {
 
     //methods
     public void populate(){
-        for (int i = 0; i <= 31; i++){
+        for (int i = 0; i < 31; i++){
             Station s = new Station(i);
             stations[i] = s;
         }
