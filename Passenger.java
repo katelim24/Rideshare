@@ -20,6 +20,10 @@ public class Passenger {
         return start;
     }
 
+    public int getMilesTraveled(){  //revenue
+        return Math.abs(finalDestination - start);
+    }
+
     public String toString(){
         return "Starting station: " + start + ", final destination: " + finalDestination;
     }
