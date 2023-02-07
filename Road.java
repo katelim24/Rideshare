@@ -21,12 +21,12 @@ public class Road {
             Station s = new Station(i);
             stations[i] = s;
         }
-        for (int i = 0; i <= 9; i++){
+        for (int i = 0; i < 9; i++){
             Car c = new Car();
             cars[i] = c;
             stations[c.getLocation()].addCar(c);
         }
-        for (int i = 0; i <= 29; i++){
+        for (int i = 0; i < 29; i++){
             Passenger p = new Passenger();
             stations[p.getStart()].addPassenger(p, cars[i]);
         }
