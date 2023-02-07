@@ -37,19 +37,19 @@ public class Road {
             if(cars[i].getDestination() - cars[i].getLocation() > 0){
                 if(stations[i].hasRightPassanger() == true){
                     Passenger p = stations[i].nextRightPassenger();
-                    cars[i].pickup(p);
+                    cars[i].pickup(stations[i], p);
                 }
             } else if(cars[i].getDestination() - cars[i].getLocation() < 0){
                 if(stations[i].hasLeftPassenger() == true){
                     Passenger p = stations[i].nextLeftPassenger();
-                    cars[i].pickup(p);
+                    cars[i].pickup(stations[i], p);
                 }
             }
             //loops through passangers in each car
             for (int j = 0; j < cars[i].getPassList().size(); j++){
-                if(cars[i].getPassList().get(j).getDestination() == cars[i].getLocation()){
+                if(cars[i].getPassList().get(j).getFinal() == cars[i].getLocation()){
                     cars[i].dropOff(cars[i].getPassList().get(j));
-                    stations[i].addPassenger(cars[i].getPassList().get(j));
+                    stations[i].addPassenger(cars[i].getPassList().get(j), cars[i]);
                 }
             }
             cars[i].drive();
