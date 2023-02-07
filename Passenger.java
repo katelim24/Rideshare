@@ -5,11 +5,9 @@ public class Passenger {
     private int start;
 
     //constructors
-    public Passenger(int myStart, int myDestination){
-        //finalDestination = (int)Math.random() * 31 + 1;
-        //start  = (int)Math.random() * 31 + 1;
-        start = myStart;
-        finalDestination = myDestination;
+    public Passenger(){
+        finalDestination = (int)Math.random() * 31 + 1;
+        start  = (int)Math.random() * 31 + 1;
     }
 
     //methods

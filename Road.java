@@ -18,7 +18,7 @@ public class Road {
     //methods
     public void populate(){
         for (int i = 0; i <= 31; i++){
-            Station s = new Station();
+            Station s = new Station(i);
             stations[i] = s;
         }
         for (int i = 0; i <= 9; i++){
@@ -28,7 +28,7 @@ public class Road {
         }
         for (int i = 0; i <= 29; i++){
             Passenger p = new Passenger();
-            stations[p.getLocation()].addPassenger(p);
+            stations[p.getStart()].addPassenger(p, cars[i]);
         }
     }
 
