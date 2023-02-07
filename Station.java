@@ -4,11 +4,13 @@ public class Station {
     //fields
     private ArrayList<Passenger> passengers;
     private int num;
+    private ArrayList<Car> cars;
 
     //constructors
     public Station(int myNum){
         num = myNum;
         passengers = new ArrayList<Passenger>();
+        cars = new ArrayList<Car>();
     }
 
 
@@ -17,8 +19,9 @@ public class Station {
      * this adds a new passenger to the passenger list
      * @param p the passanger to be added in
      */
-    public void addPassenger(Passenger p){
+    public void addPassenger(Passenger p, Car c){
         passengers.add(p);
+        c.dropOff(p);
     }
 
     /**
@@ -37,8 +40,17 @@ public class Station {
         return passengers;
     }
 
-    public String toString(){
-        return "Passengers: " + passengers + "Station num: " + num;
+
+    public ArrayList<Car> getCarList(){
+        return cars;
+    }
+
+    public void removeCar(Car c){
+        cars.remove(c);
+    }
+
+    public void addCar(Car c){
+        cars.add(c);
     }
 
     /**
@@ -90,5 +102,9 @@ public class Station {
         return false;
     }
 
+
+    public String toString(){
+        return "Passengers: " + passengers + "Station num: " + num;
+    }
 
     }
