@@ -59,11 +59,13 @@ public class Road {
     }
 
     public String toString(){
-        String s = super.toString();
-
         //put the stations in the toString with some spacing in between
+        String s = super.toString();
         for(Station st : stations){
-            s += st + "\n\n";
+            s += st.toString() + "\n";
+        }
+        for(Car c : cars){
+            s += c.toString() + "\n";
         }
         return s;
     }
