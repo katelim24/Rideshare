@@ -3,46 +3,76 @@ import java.util.*;
 public class Car {
     //fields
     private ArrayList<Passenger> passList;
-    private int moneyEarned;
+    private static int totalRev = 0;
+    private int milesTraveled;
     private int location;
     private int destination;
     private int direction;
+    private boolean isParked;
+    private static int IDgenerator = 1;
+    private int ID;
 
     //constructors
-    public Car(int start, int stop){
-        location = start;
-        destination = stop;
+    public Car(){
         passList = new ArrayList<Passenger>();
+        milesTraveled = 0;
+        totalRev = 0;
+        ID = IDgenerator;
+        IDgenerator ++;
         if(location < destination){
             direction = 1;
         } else{
             direction = -1;
         }
-        moneyEarned = 0;
-        start = (int)Math.random() * 31 + 1;
-        location = start;
+        location = (int)Math.random() * 31 + 1;
         destination = (int)Math.random() * 31 + 1;
+        isParked = false;
     }
 
     //methods
+    public int getLocation(){
+        return location;
+    }
+    
+    public int getDestination(){
+        return destination;
+    }
+    
     public void drive(){
-        if(location != destination){
-            location += direction;
+        if(isParked == false){
+            if(location == destination){
+                isParked = true;
+            } else if (destination - location > 0){
+                location ++;
+            } else {
+                location --;
+            }
+            milesTraveled ++;
         }
+    }
+
+    public void pickup(Station a, Passenger p){
+        a.removePassenger(location);
+        if(passList.size() - 1 < 3){
+            passList.add(p);
+        }
+    }
+
+    public void dropOff(Passenger p){
+        passList.remove(p);
     }
 
     public String toString(){
         String s = super.toString();
+        s += "Car#" + ID;
         s += " Loc: " + location;
         s += " Dest: " + destination;
         s += " Passengers: " + passList;
+        s += " Miles Traveled: " + milesTraveled;
         return s;
     }
 
-    public void pickup(Station a, Passenger b){
-        a.removePassenger(location);
-        passList.add(b);
+    public ArrayList<Passenger> getPassList(){
+        return passList;
     }
-
-    //add dropoff method
 }
