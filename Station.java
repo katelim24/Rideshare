@@ -67,4 +67,28 @@ public class Station {
         }
         return false;
     }
-}
+
+
+    public Passenger nextRightPassenger(){
+        for(int i = 0; i < passengers.size(); i++){
+            Passenger p = passengers.get(i);
+            if(p.getFinal() > num){
+                passengers.remove(i);
+                return p;
+            }
+        }
+        return null;
+    }
+
+    public boolean hasRightPassanger(){
+        for(int i = 0; i < passengers.size(); i++){
+            Passenger p = passengers.get(i);
+            if(p.getFinal() > num){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    }
