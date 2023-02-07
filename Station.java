@@ -4,11 +4,13 @@ public class Station {
     //fields
     private ArrayList<Passenger> passengers;
     private int num;
+    private ArrayList<Car> cars;
 
     //constructors
     public Station(int myNum){
         num = myNum;
         passengers = new ArrayList<Passenger>();
+        cars = new ArrayList<Car>();
     }
 
 
@@ -37,8 +39,17 @@ public class Station {
         return passengers;
     }
 
-    public String toString(){
-        return "Passengers: " + passengers + "Station num: " + num;
+
+    public ArrayList<Car> getCarList(){
+        return cars;
+    }
+
+    public void removeCar(Car c){
+        cars.remove(c);
+    }
+
+    public void addCar(Car c){
+        cars.add(c);
     }
 
     /**
@@ -90,5 +101,9 @@ public class Station {
         return false;
     }
 
+
+    public String toString(){
+        return "Passengers: " + passengers + "Station num: " + num;
+    }
 
     }
