@@ -21,7 +21,6 @@ public class Station {
      */
     public void addPassenger(Passenger p, Car c){
         passengers.add(p);
-        c.dropOff(p);
     }
 
     /**
