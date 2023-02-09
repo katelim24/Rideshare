@@ -19,7 +19,11 @@ public class Station {
      * this adds a new passenger to the passenger list
      * @param p the passanger to be added in
      */
-    public void addPassenger(Passenger p, Car c){
+    public void addPassengerCar(Passenger p, Car c){
+        passengers.add(p);
+    }
+
+    public void addPassengerStation(Passenger p, Station a){
         passengers.add(p);
     }
 

@@ -60,7 +60,7 @@ public class Car {
     }
 
     public void dropOff(Passenger p, Station a){
-        a.addPassenger(p);
+        a.addPassengerStation(p, a);
         passList.remove(p);
     }
 

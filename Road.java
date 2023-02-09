@@ -29,7 +29,7 @@ public class Road {
         }
         for (int i = 0; i <= 29; i++){
             Passenger p = new Passenger();
-            stations[p.getStart()].addPassenger(p, cars[(int)Math.random() * 9 + 1]); //instead of cars[i] bc cars is only 10 things long
+            stations[p.getStart()].addPassengerCar(p, cars[(int)Math.random() * 9 + 1]); //instead of cars[i] bc cars is only 10 things long
         }
     }
 
@@ -105,7 +105,7 @@ public class Road {
                 //check to see if passanger needs to be dropped off
                 if(passDest == currentStationNum){
                     currentCar.dropOff(p, currentStation); //drop off if so
-                    currentStation.addPassenger(p, currentCar); //add passanger to current station
+                    currentStation.addPassengerCar(p, currentCar); //add passanger to current station
                 }
             }
         }
