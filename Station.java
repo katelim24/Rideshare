@@ -3,16 +3,18 @@ import java.util.*;
 public class Station {
     //fields
     private ArrayList<Passenger> passengers;
-    private int num;
     private ArrayList<Car> cars;
+    private int num;
+    private static int numStationGenerator = 0;
+
 
     //constructors
-    public Station(int myNum){
-        num = myNum;
+    public Station(){
         passengers = new ArrayList<Passenger>();
         cars = new ArrayList<Car>();
+        num = numStationGenerator;
+        numStationGenerator ++; 
     }
-
 
     //methods
     /**
@@ -31,15 +33,15 @@ public class Station {
      * this removes a passenger from the passenger list
      * @param pos the position of the passenger to be removed
      */
-    public void removePassenger(int pos){
-        passengers.remove(pos);
+    public void removePassenger(Passenger p){
+        passengers.remove(p);
     }
 
     /**
      * returns the list of passengers
      * @return 
      */
-    public ArrayList<Passenger> getList(){
+    public ArrayList<Passenger> getPassList(){
         return passengers;
     }
 
@@ -107,7 +109,7 @@ public class Station {
 
 
     public String toString(){
-        return "Passengers: " + passengers + "Station num: " + num;
+        return "Station#" + num + " Cars: " + getCarList() + "Passengers: " + getPassList();
     }
 
-    }
+}

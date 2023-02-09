@@ -3,11 +3,17 @@ public class Passenger {
     //fields
     private int finalDestination;
     private int start;
+    private int location;
+    private static int IDgenerator = 1;
+    private int ID;
 
     //constructors
     public Passenger(){
         finalDestination = (int)(Math.random() * 31);
-        start  = (int)(Math.random() * 31);
+        location  = (int)(Math.random() * 31);
+        start = location;
+        ID = IDgenerator;
+        IDgenerator++;
     }
 
     //methods
@@ -25,6 +31,6 @@ public class Passenger {
     }
 
     public String toString(){
-        return "Starting station: " + start + ", final destination: " + finalDestination;
+        return "Passenger#" + ID + "- starting station: " + start + ", final destination: " + finalDestination;
     }
 }
