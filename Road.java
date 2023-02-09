@@ -29,7 +29,7 @@ public class Road {
         }
         for (int i = 0; i <= 29; i++){
             Passenger p = new Passenger();
-            stations[p.getStart()].addPassengerCar(p, cars[(int)Math.random() * 9 + 1]); //instead of cars[i] bc cars is only 10 things long
+            stations[p.getStart()].addPassengerCar(p, cars[(int)(Math.random() * 9 + 1)]); //instead of cars[i] bc cars is only 10 things long
         }
     }
 
