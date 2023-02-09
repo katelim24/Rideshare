@@ -39,14 +39,6 @@ public class Car {
     }
     
 
-    public int getRevenue(){
-        for(int i = 0; i < passList.size(); i++){
-            int revenue = (passList.get(i)).getMilesTraveled();
-            totalRev += revenue;
-        }
-        return totalRev;
-    }
-
     public void drive(){
         if(isParked == false){
             if(location == destination){
