@@ -6,8 +6,8 @@ public class Passenger {
 
     //constructors
     public Passenger(){
-        finalDestination = (int)Math.random() * 31 + 1;
-        start  = (int)Math.random() * 31 + 1;
+        finalDestination = (int)(Math.random() * 31 + 1);
+        start  = (int)(Math.random() * 31 + 1);
     }
 
     //methods
