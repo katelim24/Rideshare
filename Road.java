@@ -101,11 +101,11 @@ public class Road {
             //loop through pass list 
             for (int j = 0; j < currentCar.getPassList().size(); j++){
                 Passenger p = currentCar.getPassList().get(j); //gets each passanger
-                int passDest = p.getDestination();
+                int passDest = p.getFinal();
                 //check to see if passanger needs to be dropped off
                 if(passDest == currentStationNum){
                     currentCar.dropOff(p, currentStation); //drop off if so
-                    currentStation.addPassenger(p); //add passanger to current station
+                    currentStation.addPassenger(p, currentCar); //add passanger to current station
                 }
             }
         }
