@@ -48,6 +48,7 @@ public class Road {
                 if(currentStation.hasRightPassanger() == true){
                     Passenger p = currentStation.nextRightPassenger();
                     currentCar.pickup(currentStation, p);
+                    p.updateLocation(1);
                 }
             } else if(currentCar.getDestination() - currentCar.getLocation() < 0){
                 //picking up left passanger
@@ -55,6 +56,7 @@ public class Road {
                 if(currentStation.hasLeftPassenger() == true){
                     Passenger p = currentStation.nextLeftPassenger();
                     currentCar.pickup(currentStation, p);
+                    p.updateLocation(-1);
                 }
             }
             //remove car and passanger from current station list
@@ -99,6 +101,7 @@ public class Road {
         }
         return avg;
     }
+    
     public String toString(){
         //put the stations in the toString with some spacing in between
         //String s = super.toString();

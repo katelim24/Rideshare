@@ -57,7 +57,7 @@ public class Car {
     }
 
     public String toString(){
-        return "Car#" + ID + " Loc: " + location +  " Dest: " + destination + " Passengers: " + passList;
+        return "Car#" + ID + " Location: " + location +  " Destination: " + destination + " Passengers: " + passList;
         //+ " Miles Traveled: " + milesTraveled
     }
 

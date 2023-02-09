@@ -26,11 +26,19 @@ public class Passenger {
         return start;
     }
 
+    public void updateLocation(int direction){
+        if(direction == 1){
+            location++;
+        } else{
+            location--;   
+        }
+    }
+
     public int getMilesTraveled(){  //revenue
         return Math.abs(finalDestination - start);
     }
 
     public String toString(){
-        return "Passenger#" + ID + "- starting station: " + start + ", final destination: " + finalDestination;
+        return "Passenger#" + ID + "- location: " + start + ", final destination: " + finalDestination;
     }
 }
