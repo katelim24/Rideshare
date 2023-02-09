@@ -8,11 +8,13 @@ public class Runner {
         r.populate();
         System.out.println(r);
 
-        System.out.println("Moving -->");
-        System.out.println();
-        r.update();
-        System.out.println(r);
-
+        for(int i = 0; i < 31; i++){
+            System.out.println("Moving -->");
+            System.out.println();
+            r.update();
+            System.out.println(r);
+        }
+        
         System.out.println("Final Revenue: $" + r.avgRevenue()); //need to loop through passengers and then calculate total revenue
         //System.out.println(r.getRevenue());
     }
