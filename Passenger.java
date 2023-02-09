@@ -39,6 +39,6 @@ public class Passenger {
     }
 
     public String toString(){
-        return "Passenger#" + ID + "- location: " + start + ", final destination: " + finalDestination;
+        return "Passenger#" + ID + "- location: " + location + ", final destination: " + finalDestination;
     }
 }
