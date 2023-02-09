@@ -1,4 +1,4 @@
-import java.util.*; 
+
 public class Passenger {
     //fields
     private int finalDestination;

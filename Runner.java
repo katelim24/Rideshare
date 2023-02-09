@@ -14,5 +14,6 @@ public class Runner {
         System.out.println(r);
 
         System.out.println("Final Revenue: "); //need to loop through passengers and then calculate total revenue
+        System.out.println(r.getRevenue());
     }
 }
