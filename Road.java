@@ -60,6 +60,56 @@ public class Road {
 
     }
 
+    public void update2(){
+        for (int i = 0; i < cars.length; i++){
+            Car currentCar = cars[i];
+            int currentStationNum = currentCar.getLocation();
+            Station currentStation = stations[currentStationNum];
+
+
+            //load all possible passangers
+            if(currentCar.getDestination() - currentCar.getLocation() > 0){
+                //picking up right passanger
+                if(currentStation.hasRightPassanger() == true){
+                    Passenger p = currentStation.nextRightPassenger();
+                    currentCar.pickup(currentStation, p);
+                }
+            } else if(currentCar.getDestination() - currentCar.getLocation() < 0){
+                //picking up left passanger
+                if(currentStation.hasLeftPaseanger() == true){
+                    Passenger p = currentStation.nextLeftPassenger();
+                    currentCar.pickup(currentStation, p);
+                }
+            }
+            //remove car and passanger from current station list
+            for (int j = 0; j < currentCar.getPassList().size(); j++){
+                Passenger p = currentCar.getPassList().get(j); //gets each passanger
+                currentStation.removePassenger(i); //removes each passanger from station list
+            }
+            currentStation.removeCar(currentCar); //removes each car from station list
+
+            //move car to next station
+            currentCar.drive();
+            int updatedCurrentStationNum = currentCar.getLocation(); //update car location
+            Station updatedCurrentStation = stations[updatedCurrentStationNum]; //update car station
+            
+            
+            //add car to new station list
+            updatedCurrentStation.addCar(currentCar);
+
+            //loop through pass list 
+            for (int j = 0; j < currentCar.getPassList().size(); j++){
+                Passenger p = currentCar.getPassList().get(j); //gets each passanger
+                int passDest = p.getDestination();
+                //check to see if passanger needs to be dropped off
+                if(passDest == currentStationNum){
+                    currentCar.dropOff(p, currentStation); //drop off if so
+                    currentStation.addPassanger(p); //add passanger to current station
+                }
+            }
+        }
+    }
+
     public String toString(){
         //put the stations in the toString with some spacing in between
         String s = super.toString();
