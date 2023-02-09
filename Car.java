@@ -20,7 +20,8 @@ public class Car {
         location = (int)(Math.random() * 32);
         destination = (int)(Math.random() * 32);
         isParked = false;
-
+    }
+    
     //methods
     public int getLocation(){
         return location;
