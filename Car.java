@@ -24,8 +24,8 @@ public class Car {
         } else{
             direction = -1;
         }
-        location = (int)Math.random() * 31 + 1;
-        destination = (int)Math.random() * 31 + 1;
+        location = (int)(Math.random() * 31 + 1);
+        destination = (int)(Math.random() * 31 + 1);
         isParked = false;
     }
 
