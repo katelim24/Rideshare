@@ -13,6 +13,7 @@ public class Road {
             stations [i] = new Station(i); //makes a new station with number
         }
         cars = new Car[10];
+
     }
 
     //methods
@@ -29,11 +30,11 @@ public class Road {
         for (int i = 0; i <= 29; i++){
             Passenger p = new Passenger();
             stations[p.getStart()].addPassenger(p, cars[(int)Math.random() * 9 + 1]); //instead of cars[i] bc cars is only 10 things long
-            
         }
     }
 
-    public void update(){
+    /**
+     * public void update(){
         for (int i = 0; i < cars.length; i++){
             if(cars[i].getDestination() - cars[i].getLocation() > 0){
                 if(stations[i].hasRightPassanger() == true){
@@ -58,16 +59,57 @@ public class Road {
         }
 
     }
+     */
 
-    public int getRevenue(){
-        int total = 0;
-        for(int i = 0; i < passengers.length; i++){
-            int revenue = Math.abs(passengers[i].getStart() - passengers[i].getFinal());
-            total += revenue;
+     public void update2(){
+        for (int i = 0; i < cars.length; i++){
+            Car currentCar = cars[i];
+            int currentStationNum = currentCar.getLocation();
+            Station currentStation = stations[currentStationNum];
+
+
+            //load all possible passangers
+            if(currentCar.getDestination() - currentCar.getLocation() > 0){
+                //picking up right passanger
+                if(currentStation.hasRightPassanger() == true){
+                    Passenger p = currentStation.nextRightPassenger();
+                    currentCar.pickup(currentStation, p);
+                }
+            } else if(currentCar.getDestination() - currentCar.getLocation() < 0){
+                //picking up left passanger
+                if(currentStation.hasLeftPassenger() == true){
+                    Passenger p = currentStation.nextLeftPassenger();
+                    currentCar.pickup(currentStation, p);
+                }
+            }
+            //remove car and passanger from current station list
+            for (int j = 0; j < currentCar.getPassList().size(); j++){
+                Passenger p = currentCar.getPassList().get(j); //gets each passanger
+                currentStation.removePassenger(i); //removes each passanger from station list
+            }
+            currentStation.removeCar(currentCar); //removes each car from station list
+
+            //move car to next station
+            currentCar.drive();
+            int updatedCurrentStationNum = currentCar.getLocation(); //update car location
+            Station updatedCurrentStation = stations[updatedCurrentStationNum]; //update car station
+            
+            
+            //add car to new station list
+            updatedCurrentStation.addCar(currentCar);
+
+            //loop through pass list 
+            for (int j = 0; j < currentCar.getPassList().size(); j++){
+                Passenger p = currentCar.getPassList().get(j); //gets each passanger
+                int passDest = p.getDestination();
+                //check to see if passanger needs to be dropped off
+                if(passDest == currentStationNum){
+                    currentCar.dropOff(p, currentStation); //drop off if so
+                    currentStation.addPassenger(p); //add passanger to current station
+                }
+            }
         }
-        return total;
     }
-
 
     public String toString(){
         //put the stations in the toString with some spacing in between
