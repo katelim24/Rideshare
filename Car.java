@@ -19,14 +19,14 @@ public class Car {
         totalRev = 0;
         ID = IDgenerator;
         IDgenerator ++;
+        location = (int)(Math.random() * 31 + 1);
+        destination = (int)(Math.random() * 31 + 1);
+        isParked = false;
         if(location < destination){
             direction = 1;
         } else{
             direction = -1;
         }
-        location = (int)(Math.random() * 31 + 1);
-        destination = (int)(Math.random() * 31 + 1);
-        isParked = false;
     }
 
     //methods
