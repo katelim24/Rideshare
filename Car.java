@@ -27,12 +27,9 @@ public class Car {
         } else{
             direction = -1;
         }
-<<<<<<< HEAD
         location = (int)(Math.random() * 31);
         destination = (int)(Math.random() * 31);
         isParked = false;
-=======
->>>>>>> 42df00ef9d6726113719bef5a9e884e2c905d243
     }
 
     //methods
