@@ -76,7 +76,7 @@ public class Road {
                 }
             } else if(currentCar.getDestination() - currentCar.getLocation() < 0){
                 //picking up left passanger
-                if(currentStation.hasLeftPaseanger() == true){
+                if(currentStation.hasLeftPassenger() == true){
                     Passenger p = currentStation.nextLeftPassenger();
                     currentCar.pickup(currentStation, p);
                 }
@@ -104,7 +104,7 @@ public class Road {
                 //check to see if passanger needs to be dropped off
                 if(passDest == currentStationNum){
                     currentCar.dropOff(p, currentStation); //drop off if so
-                    currentStation.addPassanger(p); //add passanger to current station
+                    currentStation.addPassenger(p); //add passanger to current station
                 }
             }
         }
