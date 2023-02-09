@@ -4,7 +4,6 @@ public class Road {
     //fields
     private Station[] stations;
     private Car[] cars;
-    private Passenger[] passengers;
     private Car c;
 
     //constructors
@@ -14,7 +13,6 @@ public class Road {
             stations [i] = new Station(i); //makes a new station with number
         }
         cars = new Car[10];
-        passengers = new Passenger[30];
     }
 
     //methods
@@ -31,6 +29,7 @@ public class Road {
         for (int i = 0; i <= 29; i++){
             Passenger p = new Passenger();
             stations[p.getStart()].addPassenger(p, cars[(int)Math.random() * 9 + 1]); //instead of cars[i] bc cars is only 10 things long
+            
         }
     }
 
@@ -59,16 +58,6 @@ public class Road {
         }
 
     }
-
-    public int getRevenue(){
-        int total = 0;
-        for(int i = 0; i < passengers.length; i++){
-            int revenue = Math.abs(passengers[i].getStart() - passengers[i].getFinal());
-            total += revenue;
-        }
-        return total;
-    }
-
 
     public String toString(){
         //put the stations in the toString with some spacing in between
