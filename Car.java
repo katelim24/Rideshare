@@ -59,18 +59,13 @@ public class Car {
         }
     }
 
-    public void dropOff(Passenger p){
+    public void dropOff(Passenger p, Station a){
+        a.addPassenger(p);
         passList.remove(p);
     }
 
     public String toString(){
-        String s = super.toString();
-        s += "Car#" + ID;
-        s += " Loc: " + location;
-        s += " Dest: " + destination;
-        s += " Passengers: " + passList;
-        s += " Miles Traveled: " + milesTraveled;
-        return s;
+        return "Car#" + ID + " Loc: " + location +  " Dest: " + destination + " Passengers: " + passList + " Miles Traveled: " + milesTraveled;
     }
 
     public ArrayList<Passenger> getPassList(){

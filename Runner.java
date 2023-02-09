@@ -10,7 +10,7 @@ public class Runner {
 
         System.out.println("Moving -->");
         System.out.println();
-        r.update();
+        r.update2();
         System.out.println(r);
 
         System.out.println("Final Revenue: "); //need to loop through passengers and then calculate total revenue
