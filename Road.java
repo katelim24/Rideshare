@@ -22,7 +22,7 @@ public class Road {
             Station s = new Station(i);
             stations[i] = s;
         }
-        for (int i = 0; i <= 9; i++){
+        for (int i = 0; i < 10; i++){
             Car c = new Car();
             cars[i] = c;
             stations[c.getLocation()].addCar(c);
