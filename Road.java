@@ -60,6 +60,16 @@ public class Road {
 
     }
 
+
+    public int getRevenue(){
+        int total = 0;
+        for(int i = 0; i < passengers.length; i++){
+            int revenue = passengers[i].getMilesTraveled();
+            total += revenue;
+        }
+        return total;
+    }
+
     public String toString(){
         //put the stations in the toString with some spacing in between
         String s = super.toString();
