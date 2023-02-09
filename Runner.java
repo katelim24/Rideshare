@@ -5,7 +5,7 @@ public class Runner {
 
         System.out.println("Printing the starting road -->");
         System.out.println();
-        r.populate();
+        
         System.out.println(r);
 
         System.out.println("Moving -->");
