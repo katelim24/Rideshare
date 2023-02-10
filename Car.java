@@ -17,8 +17,8 @@ public class Car {
         passList = new ArrayList<Passenger>();
         ID = IDgenerator;
         IDgenerator ++;
-        location = (int)(Math.random() * 32);
-        destination = (int)(Math.random() * 32);
+        location = (int)(Math.random() * 31);
+        destination = (int)(Math.random() * 31);
         isParked = false;
     }
     
