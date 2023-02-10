@@ -27,6 +27,7 @@ public class Passenger {
     }
 
     public void updateLocation(int direction){
+        System.out.println("trying to update");
         if(direction == 1){
             location++;
         } else{
@@ -35,7 +36,7 @@ public class Passenger {
     }
 
     public int getMilesTraveled(){  //revenue
-        return Math.abs(finalDestination - start);
+        return Math.abs(start - location);
     }
 
     public String toString(){
