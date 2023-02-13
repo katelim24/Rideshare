@@ -1,0 +1,8 @@
+This is Juliet and Kate's Rideshare Project that aims to simulate a ridesharing experience (similar to uber). 
+It generates 31 stations that are later populated with 20 cars and 50 passengers in scenario 1 and then 10 
+cars and 30 passengers in scenario 2. To test which scenario yielded the highest average revenue, we ran the 
+simulation 10 times then calculated the average (total sum of revenue ÷ 10). 
+
+scenario 1 average revenue:
+
+scenario 2 average revenue:
