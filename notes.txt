@@ -4,7 +4,7 @@ cars and 30 passengers in scenario 2. To test which scenario yielded the highest
 simulation 10 times then calculated the average (total sum of revenue ÷ 10). 
 
 scenario 1 average revenue:
-trial 1:
+trial 1: 
 trial 2:
 trial 3:
 trial 4:
@@ -16,13 +16,15 @@ trial 9:
 trial 10:
 
 scenario 2 average revenue:
-trial 1:
-trial 2:
-trial 3:
-trial 4:
-trial 5:
-trial 6:
-trial 7:
-trial 8: 
-trial 9: 
-trial 10:
+trial 1: 43.0
+trial 2: 46.0
+trial 3: 32.0
+trial 4: 36.0
+trial 5: 46.0
+trial 6: 32.0
+trial 7: 29.0
+trial 8: 42.0
+trial 9: 31.0
+trial 10: 44.0
+
+average revenue: 
