@@ -6,6 +6,7 @@ public class Passenger {
     private int location;
     private static int IDgenerator = 1;
     private int ID;
+    private int direction;
 
     //constructors
     public Passenger(){
@@ -14,6 +15,7 @@ public class Passenger {
         start = location;
         ID = IDgenerator;
         IDgenerator++;
+        direction = 0;
     }
 
     //methods
@@ -33,6 +35,15 @@ public class Passenger {
         } else{
             location--;   
         }
+    }
+
+    public int getDirection(){
+        if(finalDestination - location > 0){
+            direction = 1;
+        } else if(finalDestination - location > 0){
+            direction = -1;
+        }
+        return direction;
     }
 
     public int getMilesTraveled(){  //revenue

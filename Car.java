@@ -44,6 +44,16 @@ public class Car {
         }
     }
 
+    /**
+     * if(currentStation.hasRightPassanger() == true){
+                Passenger p = currentStation.nextRightPassenger();
+                p.updateLocation(1);
+            } else if(currentStation.hasLeftPassenger() == true){
+                Passenger p = currentStation.nextLeftPassenger();
+                p.updateLocation(-1);
+            }
+     */
+
     public void pickup(Station a, Passenger p){
         a.removePassenger(p);
         if(passList.size() < 3){
