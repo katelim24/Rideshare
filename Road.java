@@ -48,7 +48,6 @@ public class Road {
                 if(currentStation.hasRightPassanger() == true){
                     Passenger p = currentStation.nextRightPassenger();
                     currentCar.pickup(currentStation, p);
-                    p.updateLocation(1);
                 }
             } else if(currentCar.getDestination() - currentCar.getLocation() < 0){
                 //picking up left passanger
@@ -56,7 +55,6 @@ public class Road {
                 if(currentStation.hasLeftPassenger() == true){
                     Passenger p = currentStation.nextLeftPassenger();
                     currentCar.pickup(currentStation, p);
-                    p.updateLocation(-1);
                 }
             }
             //remove car and passanger from current station list
@@ -70,6 +68,13 @@ public class Road {
             //move car to next station
             //System.out.println("truing to move a car to next station...");
             currentCar.drive();
+            if(currentStation.hasRightPassanger() == true){
+                Passenger p = currentStation.nextRightPassenger();
+                p.updateLocation(1);
+            } else if(currentStation.hasLeftPassenger() == true){
+                Passenger p = currentStation.nextLeftPassenger();
+                p.updateLocation(-1);
+            }
             int updatedCurrentStationNum = currentCar.getLocation(); //update car location
             Station updatedCurrentStation = stations[updatedCurrentStationNum]; //update car station
             
@@ -95,12 +100,23 @@ public class Road {
     public double avgRevenue(){
         int sum = 0;
         double avg = 0;
+        int numPassengers = 0;
         for(int i = 0; i < stations[i].getPassList().size(); i++){
             sum += stations[i].getPassList().get(i).getMilesTraveled();
-            avg = sum/stations[i].getPassList().size();
+            numPassengers += stations[i].getPassList().size();
+            avg = sum/numPassengers;
+            return avg;
         }
         return avg;
     }
+
+    /**
+     * Sum up all the miles traveled (which you're doing right now)
+Determine how many passengers there are
+Calculate the average at the end by dividing the sum by total number of passengers.
+Right now your average is being calculated using multiple division operations since it's in a for loop, but you should only perform one division operation at the very end.
+
+     */
     
     public String toString(){
         //put the stations in the toString with some spacing in between
