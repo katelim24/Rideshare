@@ -3,7 +3,7 @@ import java.util.*;
 public class Car {
     //fields
     private ArrayList<Passenger> passList;
-    //private static int totalRev = 0;
+    static int totalRev;
     //private int milesTraveled;
     private int location;
     private int destination;
@@ -20,6 +20,7 @@ public class Car {
         location = (int)(Math.random() * 31);
         destination = (int)(Math.random() * 31);
         isParked = false;
+        totalRev = 0;
     }
     
     //methods
@@ -33,13 +34,16 @@ public class Car {
     
 
     public void drive(){
+        totalRev += passList.size();
         if(isParked == false){
             if(location == destination){
                 isParked = true;
             } else if (destination - location > 0){
                 location ++;
+                System.out.println("DEBUG LOCATION: " + location);
             } else {
                 location --;
+                System.out.println("DEBUG LOCATION: " + location);
             }
         }
     }
@@ -55,6 +59,7 @@ public class Car {
         a.addPassengerStation(p, a);
         passList.remove(p);
     }
+
 
     public String toString(){
         return "Car#" + ID + " Location: " + location +  " Destination: " + destination + " Passengers: " + passList;

@@ -98,14 +98,10 @@ public class Road {
     }
 
     public double avgRevenue(){
-        int sum = 0;
-        int numPassengers = 0;
-        for(int i = 0; i < stations[i].getPassList().size(); i++){
-            sum += stations[i].getPassList().get(i).getMilesTraveled();
-            numPassengers += stations[i].getPassList().size();
-        }
-        return sum/numPassengers;
+        double avrg = Car.totalRev/cars.length;
+        return avrg;
     }
+    
 
     /**
      * Sum up all the miles traveled (which you're doing right now)
