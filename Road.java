@@ -59,22 +59,12 @@ public class Road {
             }
             //remove car and passanger from current station list
             //System.out.println("trying to remove passenger from staton...");
-            for (int j = 0; j < currentCar.getPassList().size(); j++){
-                Passenger p = currentCar.getPassList().get(j); //gets each passanger
-                currentStation.removePassenger(p); //removes each passanger from station list
-            }
+            
             currentStation.removeCar(currentCar); //removes each car from station list
 
             //move car to next station
             //System.out.println("trying to move a car to next station...");
             currentCar.drive();
-            if(currentStation.hasRightPassanger() == true){
-                Passenger p = currentStation.nextRightPassenger();
-                p.updateLocation(1);
-            } else if(currentStation.hasLeftPassenger() == true){
-                Passenger p = currentStation.nextLeftPassenger();
-                p.updateLocation(-1);
-            }
             int updatedCurrentStationNum = currentCar.getLocation(); //update car location
             Station updatedCurrentStation = stations[updatedCurrentStationNum]; //update car station
             
