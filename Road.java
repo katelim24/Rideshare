@@ -68,17 +68,15 @@ public class Road {
             //move car to next station
             //System.out.println("trying to move a car to next station...");
             currentCar.drive();
-            int updatedCurrentStationNum = currentCar.getLocation(); //update car location
-            Station updatedCurrentStation = stations[updatedCurrentStationNum]; //update car station
-            /**
-             * if(currentStation.hasRightPassanger() == true){
+            if(currentStation.hasRightPassanger() == true){
                 Passenger p = currentStation.nextRightPassenger();
                 p.updateLocation(1);
             } else if(currentStation.hasLeftPassenger() == true){
                 Passenger p = currentStation.nextLeftPassenger();
                 p.updateLocation(-1);
             }
-             */
+            int updatedCurrentStationNum = currentCar.getLocation(); //update car location
+            Station updatedCurrentStation = stations[updatedCurrentStationNum]; //update car station
             
             
             //add car to new station list
@@ -101,15 +99,12 @@ public class Road {
 
     public double avgRevenue(){
         int sum = 0;
-        double avg = 0;
         int numPassengers = 0;
         for(int i = 0; i < stations[i].getPassList().size(); i++){
             sum += stations[i].getPassList().get(i).getMilesTraveled();
             numPassengers += stations[i].getPassList().size();
-            avg = sum/numPassengers;
-            return avg;
         }
-        return avg;
+        return sum/numPassengers;
     }
 
     /**
