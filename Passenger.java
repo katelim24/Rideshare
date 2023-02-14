@@ -15,15 +15,24 @@ public class Passenger {
     }
 
     //methods
-
+    /**
+     * this method returns the passenger's final destination (randomly assigned to one of the 31 stations)
+     */
     public int getFinal(){
         return finalDestination;
     }
 
+    /**
+     * this method returns the passenger's starting location (randomly assigned to one of the 31 stations)
+     */
     public int getStart(){
         return start;
     }
 
+    /**
+     * toString returns passenger#, starting location, and destination
+     * @return the String with passengers's information
+     */
     public String toString(){
         return "Passenger#" + ID + "start: " + start + ", final destination: " + finalDestination;
     }

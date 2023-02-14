@@ -18,9 +18,13 @@ public class Road {
     }
 
     //methods
+    /**
+     * this method populates the road with 31 stations. it adds 10 cars (for scenario 2) to the station's
+     * car list, then adds 30 passengers to random cars.
+     */
     public void populate(){
         for (int i = 0; i < 31; i++){
-            Station s = new Station(); //Station s = new Station(i);
+            Station s = new Station();
             stations[i] = s;
         }
         for (int i = 0; i < 10; i++){
@@ -30,11 +34,16 @@ public class Road {
         }
         for (int i = 0; i < 30; i++){
             Passenger p = new Passenger();
-            stations[p.getStart()].addPassengerCar(p, cars[(int)(Math.random() * 9)]); //instead of cars[i] bc cars is only 10 things long
+            stations[p.getStart()].addPassengerCar(p, cars[(int)(Math.random() * 9)]);
         }
     }
 
-     public void update(){
+    /**
+     * this method updates the road each time the car moves. it keeps track of the car's location, destination, 
+     * and passengers. it picks up passengers at their respective stations if they are going in the same direction
+     * as the car, and each time the car drives, it is removed from the station and added to the next one. 
+     */
+    public void update(){
         for (int i = 0; i < cars.length; i++){
             Car currentCar = cars[i];
             int currentStationNum = currentCar.getLocation();
@@ -43,39 +52,33 @@ public class Road {
 
             //load all possible passangers
             if(currentCar.getDestination() - currentCar.getLocation() > 0){
-                //picking up right passanger
-                //System.out.println("trying to move a right person...");
+                //picking up right passanger and trying to move a right person
                 if(currentStation.hasRightPassanger() == true){
                     Passenger p = currentStation.nextRightPassenger();
                     currentCar.pickup(currentStation, p);
                 }
             } else if(currentCar.getDestination() - currentCar.getLocation() < 0){
-                //picking up left passanger
-                //System.out.println("trying to move a left person...");
+                //picking up left passanger and trying to move a left person
                 if(currentStation.hasLeftPassenger() == true){
                     Passenger p = currentStation.nextLeftPassenger();
                     currentCar.pickup(currentStation, p);
                 }
             }
-            //remove car and passanger from current station list
-            //System.out.println("trying to remove passenger from staton...");
-            
-            currentStation.removeCar(currentCar); //removes each car from station list
+            //removes each car from station list
+            currentStation.removeCar(currentCar); 
 
             //move car to next station
-            //System.out.println("trying to move a car to next station...");
             currentCar.drive();
-            int updatedCurrentStationNum = currentCar.getLocation(); //update car location
-            Station updatedCurrentStation = stations[updatedCurrentStationNum]; //update car station
+            int updatedCurrentStationNum = currentCar.getLocation(); //updates car location
+            Station updatedCurrentStation = stations[updatedCurrentStationNum]; //updates car station
             
             
             //add car to new station list
-            //System.out.println("trying to add car to new station...");
             updatedCurrentStation.addCar(currentCar);
 
             //loop through pass list 
             for (int j = 0; j < currentCar.getPassList().size(); j++){
-                //System.out.println("checks if passenger needs to be dropped off...");
+                //checks if passenger needs to be dropped off
                 Passenger p = currentCar.getPassList().get(j); //gets each passanger
                 int passDest = p.getFinal();
                 //check to see if passenger needs to be dropped off
@@ -87,20 +90,19 @@ public class Road {
         }
     }
 
+    /**
+     * calculates the average revenue from each simulation
+     * @return the average calculated by total revenue of all cars ÷ amount of cars
+     */
     public double avgRevenue(){
         double avrg = Car.totalRev/cars.length;
         return avrg;
     }
     
-
     /**
-     * Sum up all the miles traveled (which you're doing right now)
-Determine how many passengers there are
-Calculate the average at the end by dividing the sum by total number of passengers.
-Right now your average is being calculated using multiple division operations since it's in a for loop, but you should only perform one division operation at the very end.
-
+     * toString returns list of stations with cars and passengers, and returns car's location and destination
+     * @return road's information
      */
-    
     public String toString(){
         //put the stations in the toString with some spacing in between
         //String s = super.toString();
